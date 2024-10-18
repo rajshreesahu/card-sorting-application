@@ -22,3 +22,5 @@ project.fragment.lock.json
 artifacts/
 appSettings.json
 appsettings.Development.json
+wwwroot/*
+Properties/launchSettings.json
