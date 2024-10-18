@@ -22,7 +22,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Install .NET Workloads
-        run: dotnet workload install
+        run: dotnet workload install aspire
 
       - name: Restore Dependencies
         working-directory: ./card-sorting-api/CardSorting.API
