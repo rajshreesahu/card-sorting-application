@@ -20,3 +20,5 @@ node_modules/
 project.lock.json
 project.fragment.lock.json
 artifacts/
+appSettings.json
+appsettings.Development.json
