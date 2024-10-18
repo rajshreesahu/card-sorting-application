@@ -22,18 +22,18 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Build with dotnet
-        working-directory: ./card-sorting-api
+        working-directory: ./card-sorting-api/CardSorting.API
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        working-directory: ./card-sorting-api
+        working-directory: ./card-sorting-api/CardSorting.API
         run: dotnet publish -c Release --output ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ./card-sorting-api/publish
+          path: ./card-sorting-api/CardSorting.API/publish
 
   deploy:
     runs-on: windows-latest
@@ -63,5 +63,5 @@ jobs:
         with:
           app-name: 'card-sorting-api'
           slot-name: 'Production'
-          package: ./card-sorting-api/publish
+          package: ./card-sorting-api/CardSorting.API/publish
           
