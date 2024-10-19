@@ -1,6 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import App from "../App";
-import { sortCards } from "../api/cardService";
 
 test('renders Card Sorting App heading', () => {
   render(<App />);
@@ -26,10 +25,9 @@ test('disables the Sort Cards button when loading', () => {
   //Simulate a button click
   fireEvent.click(buttonElement);
 
-  //TODO: Uncomment below code to Mock API call for full integration
-  // jest.mock('./api/cardService', () => ({
-  //   sortCards: jest.fn(() => Promise.resolve(['3C', '2D', 'JS']))
-  // }))
+  jest.mock('./api/cardService', () => ({
+    sortCards: jest.fn(() => Promise.resolve(['3C', '2D', 'JS']))
+  }))
   expect(buttonElement).toBeDisabled();
 });
 
