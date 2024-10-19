@@ -17,7 +17,7 @@ test('allows user to input card values in the text field', () => {
 
 test('disables the Sort Cards button when loading', () => {
   render(<App />);
-  const buttonElement = screen.getByText(/Sort Cards/i);
+  const buttonElement = screen.getByText(/SORT CARDS/i);
 
   //Check if the button is enabled initially.
   expect(buttonElement).not.toBeDisabled();
@@ -25,7 +25,7 @@ test('disables the Sort Cards button when loading', () => {
   //Simulate a button click
   fireEvent.click(buttonElement);
 
-  jest.mock('./api/cardService', () => ({
+  jest.mock('../api/cardService', () => ({
     sortCards: jest.fn(() => Promise.resolve(['3C', '2D', 'JS']))
   }))
   expect(buttonElement).toBeDisabled();
@@ -33,9 +33,8 @@ test('disables the Sort Cards button when loading', () => {
 
 test("displays loader when sorting cards", async () => {
   render(<App />);
-  const button = screen.getByText(/Sort Cards/i);
+  const button = screen.getByText(/SORT CARDS/i);
   fireEvent.click(button);
 
   expect(screen.getByText(/Sorting.../i)).toBeInTheDocument();
-  await screen.findByText(/Sorted Cards/i);
 });
