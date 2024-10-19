@@ -76,6 +76,7 @@ This application simulates the sorting of the cards using a full-stack approach,
   - **Error Handling:** Improved error handling on both the API and UI sides for better user feedback.
   - **Logging:** Enabling **Application Insights to Azure** to log the API data.
   - **SOLID Principles:** The application follows SOLID design principles, ensuring that the code is flexible, amintainable, and scalable.
+  - **Deployment Process:** The deployment process is fully automated via GitHub Actions, with separate workflows for the UI and backend, ensuring seamless CI/CD.
 
 ## Conclusion
 The Sort My Deck Application showcases a full-stack implementation of a card sorting game. With a focus on clean code, maintainability, and modern technologies, the project is designed to be both functional and easy to extend. The use of React, Material UI, and .NET Core ensures a scalable, responsive, and modern solution.
