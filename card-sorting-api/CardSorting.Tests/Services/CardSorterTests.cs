@@ -1,5 +1,4 @@
 ﻿using CardSorting.API.Interfaces;
-using CardSorting.API.Models;
 using CardSorting.API.Services;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -20,19 +19,9 @@ namespace CardSorting.Tests.Services
         public void SortCards_ShouldReturnSortedCards_WhenValidInput()
         {
             //Arrange
-            var cards = new List<Card>
+            var cards = new List<string>
             {
-                new Card { Rank = "3", Suit = 'C' },
-                new Card { Rank = "J", Suit = 'S' },
-                new Card { Rank = "2", Suit = 'D' },
-                new Card { SpecialType = "PT" },
-                new Card { Rank = "10", Suit = 'H' },
-                new Card { Rank = "K", Suit = 'H' },
-                new Card { Rank = "8", Suit = 'S' },
-                new Card { SpecialType = "4T" },
-                new Card { Rank = "A", Suit = 'C' },
-                new Card { Rank = "4", Suit = 'H' },
-                new Card { SpecialType = "RT" },
+                "3C", "JS", "2D", "PT", "10H", "KH", "8S", "4T", "AC", "4H", "RT"
             };
 
             //Act
@@ -56,7 +45,7 @@ namespace CardSorting.Tests.Services
         public void SortCards_ShouldHandleEmptyList()
         {
             //Arrange
-            var cards = new List<Card>();
+            var cards = new List<string>();
 
             //Act
             var result = _cardSorter.SortCards(cards);
@@ -69,7 +58,7 @@ namespace CardSorting.Tests.Services
         public void SortCards_ShouldHandleSingleCard()
         {
             //Arrange
-            var cards = new List<Card> { new Card { Rank = "A", Suit = 'S' } };
+            var cards = new List<string> { "AS" };
 
             //Act
             var result = _cardSorter.SortCards(cards);

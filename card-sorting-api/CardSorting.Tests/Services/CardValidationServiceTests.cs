@@ -1,5 +1,4 @@
 ﻿using CardSorting.API.Interfaces;
-using CardSorting.API.Models;
 using CardSorting.API.Services;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -20,10 +19,9 @@ namespace CardSorting.Tests.Services
         public void ValidateCards_ShouldReturnTrue_WhenValidInput()
         {
             //Arrange
-            var cards = new List<Card>
+            var cards = new List<string>
             {
-                new Card { Rank = "4", Suit = 'H' },
-                new Card { Rank = "2", Suit = 'D' }
+                "3C", "JS", "2D", "PT", "10H", "KH", "8S", "4T", "AC", "4H", "RT"
             };
 
             //Act
@@ -37,7 +35,7 @@ namespace CardSorting.Tests.Services
         public void ValidateCards_ShouldReturnFalse_WhenEmptyList()
         {
             //Arrange
-            var cards = new List<Card>();
+            var cards = new List<string>();
 
             //Act
             var result = _validationService.ValidateCards(cards);

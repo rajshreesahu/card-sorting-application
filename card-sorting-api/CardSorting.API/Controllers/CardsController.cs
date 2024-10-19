@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using CardSorting.API.Interfaces;
-using CardSorting.API.Models;
 
 namespace CardSorting.API.Controllers
 {
@@ -18,7 +17,7 @@ namespace CardSorting.API.Controllers
         }
 
         [HttpPost("sort")]
-        public ActionResult<List<string>> SortCards([FromBody] List<Card> cards)
+        public ActionResult<List<string>> SortCards([FromBody] List<string> cards)
         {
             if (!_cardValidator.ValidateCards(cards)) {
                 return BadRequest("Invalid card input.");

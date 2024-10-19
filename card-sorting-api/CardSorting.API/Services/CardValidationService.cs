@@ -1,5 +1,4 @@
 ﻿using CardSorting.API.Interfaces;
-using CardSorting.API.Models;
 
 namespace CardSorting.API.Services
 {
@@ -11,7 +10,7 @@ namespace CardSorting.API.Services
             _logger = logger;
         }
 
-        public bool ValidateCards(List<Card> cards)
+        public bool ValidateCards(List<string> cards)
         {
             if (cards == null || cards.Count == 0)
             {

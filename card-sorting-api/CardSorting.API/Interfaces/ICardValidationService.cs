@@ -1,9 +1,7 @@
-﻿using CardSorting.API.Models;
-
-namespace CardSorting.API.Interfaces
+﻿namespace CardSorting.API.Interfaces
 {
     public interface ICardValidationService
     {
-        bool ValidateCards(List<Card> cards);
+        bool ValidateCards(List<string> cards);
     }
 }
