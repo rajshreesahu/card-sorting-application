@@ -22,6 +22,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build with dotnet
+        working-directory: ${{env.DOTNET_ROOT}}/card-sorting-api/CardSorting.API
         run: dotnet build --configuration Release
 
       - name: dotnet publish
