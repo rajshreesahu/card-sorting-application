@@ -71,7 +71,7 @@ This application simulates the sorting of the cards using a full-stack approach,
   - **Code Reusability:** Helper functions (e.g., for extracting rank and suit) are abstracted for reusability across the project.
   - **Comprehensive Unit Testing:** Both the API and UI are covered by unit tests, ensuring that changes to the codebase do not introduce regressions.
   - **Responsive UI:** The UI is fully responsive and styled using Material UI, ensuring that it looks great on all devices.
-  - **Modern Development Stack:** The project uses the latest versions of .NET Core, React, and Node.js to ensure a modern development experience. Code
+  - **Modern Development Stack:** The project uses the latest versions of .NET Core and React to ensure a modern development experience.
   - **Scalability:** The system is designed to be extensible, allowing for future features and changes without major code refactoring.
   - **Error Handling:** Improved error handling on both the API and UI sides for better user feedback.
   - **Logging:** Enabling **Application Insights to Azure** to log the API data.
