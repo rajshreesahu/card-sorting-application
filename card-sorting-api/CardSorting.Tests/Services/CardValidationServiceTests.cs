@@ -25,23 +25,60 @@ namespace CardSorting.Tests.Services
             };
 
             //Act
-            var result = _validationService.ValidateCards(cards);
+            var result = _validationService.ValidateCards(cards, out string errorMessage);
 
             //Assert
             Assert.True(result);
+            Assert.Empty(errorMessage);
         }
 
         [Fact]
-        public void ValidateCards_ShouldReturnFalse_WhenEmptyList()
+        public void ValidateCards_ShouldReturnTrue_SpecialCards()
+        {
+            //Arrange
+            var cards = new List<string>
+            {
+                "PT", "4T", "RT", "2T"
+            };
+
+            //Act
+            var result = _validationService.ValidateCards(cards, out string errorMessage);
+
+            //Assert
+            Assert.True(result);
+            Assert.Empty(errorMessage);
+        }
+
+        [Fact]
+        public void ValidateCards_ShouldReturnFalse_WithErrorMessage_InvalidCards()
+        {
+            //Arrange
+            var cards = new List<string>
+            {
+                "PT", "4T", "XX"
+            };
+
+            //Act
+            var result = _validationService.ValidateCards(cards, out string errorMessage);
+
+            //Assert
+            Assert.False(result);
+            Assert.Equal("Invalid card input received: XX", errorMessage);
+        }
+
+
+        [Fact]
+        public void ValidateCards_ShouldReturnFalse_WithErrorMessage_WhenEmptyList()
         {
             //Arrange
             var cards = new List<string>();
 
             //Act
-            var result = _validationService.ValidateCards(cards);
+            var result = _validationService.ValidateCards(cards, out string errorMessage);
 
             //Assert
             Assert.False(result);
+            Assert.Equal("No cards received.", errorMessage);
         }
     }
 }

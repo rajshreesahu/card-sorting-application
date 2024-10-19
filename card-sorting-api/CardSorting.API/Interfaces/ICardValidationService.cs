@@ -2,6 +2,6 @@
 {
     public interface ICardValidationService
     {
-        bool ValidateCards(List<string> cards);
+        bool ValidateCards(List<string> cards, out string errorMessage);
     }
 }
