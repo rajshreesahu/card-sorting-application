@@ -13,7 +13,8 @@ export const useSortCards = () => {
             const sorted = await sortCards(cards);
             setSortedCards(sorted);
         } catch (err){
-            setError('Failed to sort cards. Please try again.');
+            setSortedCards([]);
+            setError(err.message);
         }
         setLoading(false);
     };

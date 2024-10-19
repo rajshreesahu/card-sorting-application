@@ -17,10 +17,14 @@ const theme = createTheme({
 const App = () => {
   const [inputCards, setInputCards] = useState(''); //user input
   const { sortedCards, handleSortCards, loading, error } = useSortCards();
-
+  
   //handle user input submission
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!inputCards.trim()) {
+      handleSortCards([]);
+      return;
+    }
     const parsedCards = inputCards.split(',').map(card => card.trim()); //Parse input into an array
     handleSortCards(parsedCards);
   };
@@ -77,11 +81,22 @@ const App = () => {
           {/* Loader while sorting */}
           {loading && <div className="loader"></div>}
 
-          {/* Display any errors */}
-          {error && <Typography color="error" fontWeight={'bold'} align="center">{error}</Typography>}
-
-          {/* Display sorted cards once sorted */}
-          {sortedCards.length > 0 && <CardList cards={sortedCards} title="Sorted Cards" />}
+          {!loading && (
+            <>
+              {error && (
+                <Typography 
+                  color="error"
+                  fontWeight={'bold'}
+                  align="center"
+                >
+                  {error === 'No cards received.' ? 'No cards to sort. Please enter some cards to sort!' : error}
+                </Typography>
+              )}
+              {sortedCards.length > 0 && (
+                <CardList cards={sortedCards} title="Sorted Cards" />
+              )}
+            </>
+          )}
           </CardContent>
         </Card>
       </Container>
