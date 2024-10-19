@@ -64,7 +64,7 @@ This application simulates the sorting of the cards using a full-stack approach,
 ## UI Features
   The UI of the application is a user-friendly interface built using **React.js** and styled with **Material UI**. Users can input a deck of unsorted cards, and the sorted deck is displayed     interactively on the page.
 
-  - **UI Website:** The live application can be accessed at: https://card-sort-app-dqfvgshhe0g0e5d0.southeastasia-01.azurewebsites.net/
+  - **UI Website:** The live application can be accessed at: https://agreeable-mud-00917d300.5.azurestaticapps.net/
 
 ## Project Highlights
   - **Separation of Concerns:** The project is split into distinct API and UI sections, ensuring clean architecture and maintainability.
