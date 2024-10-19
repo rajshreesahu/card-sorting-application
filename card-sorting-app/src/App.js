@@ -16,14 +16,12 @@ const theme = createTheme({
 })
 const App = () => {
   const [inputCards, setInputCards] = useState(''); //user input
-  const [cards, setCards] = useState([]); //store parsed cards from user input
   const { sortedCards, handleSortCards, loading, error } = useSortCards();
 
   //handle user input submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const parsedCards = inputCards.split(',').map(card => card.trim()); //Parse input into an array
-    setCards(parsedCards);
     handleSortCards(parsedCards);
   };
 
