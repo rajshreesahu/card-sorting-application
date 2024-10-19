@@ -19,8 +19,8 @@ namespace CardSorting.API.Controllers
         [HttpPost("sort")]
         public ActionResult<List<string>> SortCards([FromBody] List<string> cards)
         {
-            if (!_cardValidator.ValidateCards(cards)) {
-                return BadRequest("Invalid card input.");
+            if (!_cardValidator.ValidateCards(cards, out string errorMessage)) {
+                return BadRequest(new { message = errorMessage });
             }
             var sortedCards = _cardSorter.SortCards(cards);
             return Ok(sortedCards);
