@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -22,18 +22,16 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Build with dotnet
-        working-directory: ${{ github.workspace }}/card-sorting-api/CardSorting.API
         run: dotnet build --configuration Release
 
       - name: dotnet publish
-        working-directory: ${{ github.workspace }}/card-sorting-api/CardSorting.API
-        run: dotnet publish -c Release --output ./publish -v diag
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/card-sorting-api
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{ github.workspace }}/card-sorting-api/CardSorting.API/publish
+          path: ${{env.DOTNET_ROOT}}/card-sorting-api
 
   deploy:
     runs-on: ubuntu-latest
@@ -63,5 +61,5 @@ jobs:
         with:
           app-name: 'card-sorting-api'
           slot-name: 'Production'
-          package: ${{ github.workspace }}/card-sorting-api/CardSorting.API/publish
+          package: .
           
