@@ -63,8 +63,19 @@ h1 {
     100% { transform: rotate(360deg); }
 }
 .error {
-    color: red;
+    color: #ff0000;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: all 0.3s ease-in-out;
     margin-top: 20px;
+    font-family: sans-serif;
+}
+.error:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
 @media (max-width: 768px) {
     .cards-container {
@@ -96,4 +107,11 @@ form {
 }
 .MuiPaper-root:hover {
     box-shadow: 0px 6px 25px rgba(255, 0, 0, 0.3) !important;
+}
+.h3 {
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    color: #F5F5F5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 1.0);
+    margin-bottom: 20px;
 }

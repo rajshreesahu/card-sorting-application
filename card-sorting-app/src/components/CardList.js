@@ -11,7 +11,7 @@ const CardList = ({ cards, title }) => {
     });
     return (
         <div className="container">
-            <h3>{title}</h3>
+            <h3 className="h3">{title}</h3>
             <div className="cards-container">
                 {trail.map((style, index) => (
                     <animated.div key={index} style={style}>
