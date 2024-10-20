@@ -74,7 +74,7 @@ This application simulates the sorting of the cards using a full-stack approach,
   - **Modern Development Stack:** The project uses the latest versions of .NET Core and React to ensure a modern development experience.
   - **Scalability:** The system is designed to be extensible, allowing for future features and changes without major code refactoring.
   - **Error Handling:** Improved error handling on both the API and UI sides for better user feedback.
-  - **Logging:** Enabling **Application Insights to Azure** to log the API data.
+  - **Logging:** Enabling **Application Insights Telemetry to Azure** to log the API data.
   - **SOLID Principles:** The application follows SOLID design principles, ensuring that the code is flexible, amintainable, and scalable.
   - **Deployment Process:** The deployment process is fully automated via GitHub Actions, with separate workflows for the UI and backend, ensuring seamless CI/CD.
 

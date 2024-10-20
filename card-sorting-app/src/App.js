@@ -84,12 +84,8 @@ const App = () => {
           {!loading && (
             <>
               {error && (
-                <Typography 
-                  color="error"
-                  fontWeight={'bold'}
-                  align="center"
-                >
-                  {error === 'No cards received.' ? 'No cards to sort. Please enter some cards to sort!' : error}
+                <Typography className="error">
+                  {error === 'No cards received.' ? 'Oops! Looks like your deck is empty. Enter some cards to sort.' : error}
                 </Typography>
               )}
               {sortedCards.length > 0 && (
